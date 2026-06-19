@@ -121,6 +121,7 @@ def generate_table_xml(table_soup, loc_x, relative_y, table_width, table_height,
     xml_output.append(f'        </Item{item_idx}>')
     return '\n'.join(xml_output)
 
+
 def convert_html_to_repx(html_content, start_ref=100):
     soup = BeautifulSoup(html_content, 'html.parser')
     
@@ -134,6 +135,10 @@ def convert_html_to_repx(html_content, start_ref=100):
     bands_data = {
         "ReportHeaderBand": {"items": [], "min_y": float('inf'), "max_y": 0},
         "DetailBand": {"items": [], "min_y": float('inf'), "max_y": 0}
+        # DetailReportBand instead of DetailBand
+        # ReportFooter Band
+        # PageFooter Band
+        # TopMargin / BottomMargin
     }
 
     for div in soup.find_all('div', attrs={'data-label': True}):
@@ -154,9 +159,15 @@ def convert_html_to_repx(html_content, start_ref=100):
         bands_data[target_band]["max_y"] = max(bands_data[target_band]["max_y"], loc_y + height)
 
     # 2. Generate XML Orchestration
+    # xml_output = [
+    #     '<?xml version="1.0" encoding="utf-8"?>',
+    #     '<XtraReportsLayoutSerializer SerializerVersion="23.2.4.0" Ref="1" ControlType="DevExpress.XtraReports.UI.XtraReport" Name="GeneratedRep" PageWidth="793" PageHeight="1122" Version="23.2" Dpi="96" ReportUnit="Pixels">',
+    #     '  <Bands>'
+    # ]
+
     xml_output = [
         '<?xml version="1.0" encoding="utf-8"?>',
-        '<XtraReportsLayoutSerializer SerializerVersion="23.2.4.0" Ref="1" ControlType="DevExpress.XtraReports.UI.XtraReport" Name="GeneratedRep" PageWidth="793" PageHeight="1122" Version="23.2" Dpi="96" ReportUnit="Pixels">',
+        f'<XtraReportsLayoutSerializer SerializerVersion="23.2.4.0" Ref="1" ControlType="DevExpress.XtraReports.UI.XtraReport" Name="GeneratedRep" SnapGridSize="12.5" ReportUnit="Pixels" Margins="{MARGIN_LEFT}, {MARGIN_RIGHT}, {MARGIN_TOP}, {MARGIN_BOTTOM}" PaperKind="Custom" PageWidth="{int(PAGE_WIDTH_PX)}" PageHeight="{int(PAGE_HEIGHT_PX)}" Version="23.2" Dpi="96">',
         '  <Bands>'
     ]
 
@@ -203,10 +214,12 @@ def convert_html_to_repx(html_content, start_ref=100):
 
     return '\n'.join(xml_output)
 
+
 # ==========================================
 # Execution Block
 # ==========================================
 if __name__ == "__main__":
+    
     html_input = """
     <div data-bbox="[36,18,170,86]" data-label="Report-Header-Picture">[Figure: JLA logo]</div>
 
