@@ -1,0 +1,85 @@
+<Item1 Ref="901" ControlType="XRTable" Name="table901" SizeF="980,100" LocationFloat="0,0" Dpi="96" Borders="All">
+  <Rows>
+    <Item1 Ref="902" ControlType="XRTableRow" Name="tr902" Weight="1" Dpi="96">
+      <Cells>
+        <Item1 Ref="903" ControlType="XRTableCell" Name="tc903" Weight="7" Text="Appliance Details" Font="Arial, 9.75pt, style=Bold" Dpi="96" />
+        <Item2 Ref="904" ControlType="XRTableCell" Name="tc904" Weight="16" Text="Combustion Checks" Font="Arial, 9.75pt, style=Bold" Dpi="96" />
+      </Cells>
+    </Item1>
+    <Item2 Ref="905" ControlType="XRTableRow" Name="tr905" Weight="1" Dpi="96">
+      <Cells>
+        <Item1 Ref="906" ControlType="XRTableCell" Name="tc906" Weight="1" Text="Location" Font="Arial, 9.75pt, style=Bold" Dpi="96" />
+        <Item2 Ref="907" ControlType="XRTableCell" Name="tc907" Weight="1" Text="Type" Font="Arial, 9.75pt, style=Bold" Dpi="96" />
+        <Item3 Ref="908" ControlType="XRTableCell" Name="tc908" Weight="1" Text="Make / Model" Font="Arial, 9.75pt, style=Bold" Dpi="96" />
+        <Item4 Ref="909" ControlType="XRTableCell" Name="tc909" Weight="1" Text="Serial Number" Font="Arial, 9.75pt, style=Bold" Dpi="96" />
+        <Item5 Ref="910" ControlType="XRTableCell" Name="tc910" Weight="1" Text="Burner Manufacturer" Font="Arial, 9.75pt, style=Bold" Dpi="96" />
+        <Item6 Ref="911" ControlType="XRTableCell" Name="tc911" Weight="1" Text="Flue Type" Font="Arial, 9.75pt, style=Bold" Dpi="96" />
+        <Item7 Ref="912" ControlType="XRTableCell" Name="tc912" Weight="1" Text="Firing Mode" Font="Arial, 9.75pt, style=Bold" Dpi="96" />
+        <Item8 Ref="913" ControlType="XRTableCell" Name="tc913" Weight="1" Text="Heat input rating (kW)" Font="Arial, 9.75pt, style=Bold" Dpi="96" />
+        <Item9 Ref="914" ControlType="XRTableCell" Name="tc914" Weight="1" Text="Gas burner pressure (mbar)" Font="Arial, 9.75pt, style=Bold" Dpi="96" />
+        <Item10 Ref="915" ControlType="XRTableCell" Name="tc915" Weight="1" Text="Gas rate (m³/hr)" Font="Arial, 9.75pt, style=Bold" Dpi="96" />
+        <Item11 Ref="916" ControlType="XRTableCell" Name="tc916" Weight="1" Text="Air/gas ratio control setting" Font="Arial, 9.75pt, style=Bold" Dpi="96" />
+        <Item12 Ref="917" ControlType="XRTableCell" Name="tc917" Weight="1" Text="Ambient (room) temp (°C)" Font="Arial, 9.75pt, style=Bold" Dpi="96" />
+        <Item13 Ref="918" ControlType="XRTableCell" Name="tc918" Weight="1" Text="Flue gas temp (°C)" Font="Arial, 9.75pt, style=Bold" Dpi="96" />
+        <Item14 Ref="919" ControlType="XRTableCell" Name="tc919" Weight="1" Text="Flue gas temp net (°C)" Font="Arial, 9.75pt, style=Bold" Dpi="96" />
+        <Item15 Ref="920" ControlType="XRTableCell" Name="tc920" Weight="1" Text="Flue draught pressure (mbar)" Font="Arial, 9.75pt, style=Bold" Dpi="96" />
+        <Item16 Ref="921" ControlType="XRTableCell" Name="tc921" Weight="1" Text="Oxygen (O2) %" Font="Arial, 9.75pt, style=Bold" Dpi="96" />
+        <Item17 Ref="922" ControlType="XRTableCell" Name="tc922" Weight="1" Text="Carbon Monoxide (CO) ppm" Font="Arial, 9.75pt, style=Bold" Dpi="96" />
+        <Item18 Ref="923" ControlType="XRTableCell" Name="tc923" Weight="1" Text="Carbon Dioxide (CO2) %" Font="Arial, 9.75pt, style=Bold" Dpi="96" />
+        <Item19 Ref="924" ControlType="XRTableCell" Name="tc924" Weight="1" Text="NOx %" Font="Arial, 9.75pt, style=Bold" Dpi="96" />
+        <Item20 Ref="925" ControlType="XRTableCell" Name="tc925" Weight="1" Text="Excess air %" Font="Arial, 9.75pt, style=Bold" Dpi="96" />
+        <Item21 Ref="926" ControlType="XRTableCell" Name="tc926" Weight="1" Text="CO/CO2-ratio" Font="Arial, 9.75pt, style=Bold" Dpi="96" />
+        <Item22 Ref="927" ControlType="XRTableCell" Name="tc927" Weight="1" Text="Gross efficiency %" Font="Arial, 9.75pt, style=Bold" Dpi="96" />
+        <Item23 Ref="928" ControlType="XRTableCell" Name="tc928" Weight="1" Text="CO flue dilution ppm" Font="Arial, 9.75pt, style=Bold" Dpi="96" />
+      </Cells>
+    </Item2>
+    <Item3 Ref="929" ControlType="XRTableRow" Name="tr929" Weight="1" Dpi="96">
+      <Cells>
+        <Item1 Ref="930" ControlType="XRTableCell" Name="tc930" Weight="1" RowSpan="2" Font="Arial, 9pt" Dpi="96" />
+        <Item2 Ref="931" ControlType="XRTableCell" Name="tc931" Weight="1" RowSpan="2" Font="Arial, 9pt" Dpi="96" />
+        <Item3 Ref="932" ControlType="XRTableCell" Name="tc932" Weight="1" RowSpan="2" Font="Arial, 9pt" Dpi="96" />
+        <Item4 Ref="933" ControlType="XRTableCell" Name="tc933" Weight="1" RowSpan="2" Font="Arial, 9pt" Dpi="96" />
+        <Item5 Ref="934" ControlType="XRTableCell" Name="tc934" Weight="1" RowSpan="2" Font="Arial, 9pt" Dpi="96" />
+        <Item6 Ref="935" ControlType="XRTableCell" Name="tc935" Weight="1" RowSpan="2" Font="Arial, 9pt" Dpi="96" />
+        <Item7 Ref="936" ControlType="XRTableCell" Name="tc936" Weight="1" Text="Low" Font="Arial, 9pt" Dpi="96" />
+        <Item8 Ref="937" ControlType="XRTableCell" Name="tc937" Weight="1" Font="Arial, 9pt" Dpi="96" />
+        <Item9 Ref="938" ControlType="XRTableCell" Name="tc938" Weight="1" Font="Arial, 9pt" Dpi="96" />
+        <Item10 Ref="939" ControlType="XRTableCell" Name="tc939" Weight="1" Font="Arial, 9pt" Dpi="96" />
+        <Item11 Ref="940" ControlType="XRTableCell" Name="tc940" Weight="1" Font="Arial, 9pt" Dpi="96" />
+        <Item12 Ref="941" ControlType="XRTableCell" Name="tc941" Weight="1" Font="Arial, 9pt" Dpi="96" />
+        <Item13 Ref="942" ControlType="XRTableCell" Name="tc942" Weight="1" Font="Arial, 9pt" Dpi="96" />
+        <Item14 Ref="943" ControlType="XRTableCell" Name="tc943" Weight="1" Font="Arial, 9pt" Dpi="96" />
+        <Item15 Ref="944" ControlType="XRTableCell" Name="tc944" Weight="1" Font="Arial, 9pt" Dpi="96" />
+        <Item16 Ref="945" ControlType="XRTableCell" Name="tc945" Weight="1" Font="Arial, 9pt" Dpi="96" />
+        <Item17 Ref="946" ControlType="XRTableCell" Name="tc946" Weight="1" Font="Arial, 9pt" Dpi="96" />
+        <Item18 Ref="947" ControlType="XRTableCell" Name="tc947" Weight="1" Font="Arial, 9pt" Dpi="96" />
+        <Item19 Ref="948" ControlType="XRTableCell" Name="tc948" Weight="1" Font="Arial, 9pt" Dpi="96" />
+        <Item20 Ref="949" ControlType="XRTableCell" Name="tc949" Weight="1" Font="Arial, 9pt" Dpi="96" />
+        <Item21 Ref="950" ControlType="XRTableCell" Name="tc950" Weight="1" Font="Arial, 9pt" Dpi="96" />
+        <Item22 Ref="951" ControlType="XRTableCell" Name="tc951" Weight="1" Font="Arial, 9pt" Dpi="96" />
+        <Item23 Ref="952" ControlType="XRTableCell" Name="tc952" Weight="1" Font="Arial, 9pt" Dpi="96" />
+      </Cells>
+    </Item3>
+    <Item4 Ref="953" ControlType="XRTableRow" Name="tr953" Weight="1" Dpi="96">
+      <Cells>
+        <Item1 Ref="954" ControlType="XRTableCell" Name="tc954" Weight="1" Text="High" Font="Arial, 9pt" Dpi="96" />
+        <Item2 Ref="955" ControlType="XRTableCell" Name="tc955" Weight="1" Font="Arial, 9pt" Dpi="96" />
+        <Item3 Ref="956" ControlType="XRTableCell" Name="tc956" Weight="1" Font="Arial, 9pt" Dpi="96" />
+        <Item4 Ref="957" ControlType="XRTableCell" Name="tc957" Weight="1" Font="Arial, 9pt" Dpi="96" />
+        <Item5 Ref="958" ControlType="XRTableCell" Name="tc958" Weight="1" Font="Arial, 9pt" Dpi="96" />
+        <Item6 Ref="959" ControlType="XRTableCell" Name="tc959" Weight="1" Font="Arial, 9pt" Dpi="96" />
+        <Item7 Ref="960" ControlType="XRTableCell" Name="tc960" Weight="1" Font="Arial, 9pt" Dpi="96" />
+        <Item8 Ref="961" ControlType="XRTableCell" Name="tc961" Weight="1" Font="Arial, 9pt" Dpi="96" />
+        <Item9 Ref="962" ControlType="XRTableCell" Name="tc962" Weight="1" Font="Arial, 9pt" Dpi="96" />
+        <Item10 Ref="963" ControlType="XRTableCell" Name="tc963" Weight="1" Font="Arial, 9pt" Dpi="96" />
+        <Item11 Ref="964" ControlType="XRTableCell" Name="tc964" Weight="1" Font="Arial, 9pt" Dpi="96" />
+        <Item12 Ref="965" ControlType="XRTableCell" Name="tc965" Weight="1" Font="Arial, 9pt" Dpi="96" />
+        <Item13 Ref="966" ControlType="XRTableCell" Name="tc966" Weight="1" Font="Arial, 9pt" Dpi="96" />
+        <Item14 Ref="967" ControlType="XRTableCell" Name="tc967" Weight="1" Font="Arial, 9pt" Dpi="96" />
+        <Item15 Ref="968" ControlType="XRTableCell" Name="tc968" Weight="1" Font="Arial, 9pt" Dpi="96" />
+        <Item16 Ref="969" ControlType="XRTableCell" Name="tc969" Weight="1" Font="Arial, 9pt" Dpi="96" />
+        <Item17 Ref="970" ControlType="XRTableCell" Name="tc970" Weight="1" Font="Arial, 9pt" Dpi="96" />
+      </Cells>
+    </Item4>
+  </Rows>
+</Item1>

@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="23.2.4.0" Ref="1" ControlType="DevExpress.XtraReports.UI.XtraReport" Name="GeneratedRep" PageWidth="793" PageHeight="1122" Version="23.2" Dpi="96" ReportUnit="Pixels">
+  <Bands>
+    <Item1 Ref="101" ControlType="ReportHeaderBand" Name="ReportHeader" HeightF="268.16" Dpi="96">
+      <Controls>
+        <Item1 Ref="102" ControlType="XRPictureBox" Name="pic102" SizeF="106.26,71.81" LocationFloat="0.00,8.45" Dpi="96" Sizing="ZoomImage" />
+        <Item2 Ref="103" ControlType="XRLabel" Name="lbl103" SizeF="337.02,68.64" LocationFloat="173.28,5.28" Text="CD/11 Oil Firing Servicing and Commissioning Report" Font="Arial, 14pt, style=Bold" Dpi="96" TextAlignment="MiddleCenter" />
+        <Item3 Ref="104" ControlType="XRPictureBox" Name="pic104" SizeF="82.74,86.59" LocationFloat="615.77,0.00" Dpi="96" Sizing="ZoomImage" />
+        <Item4 Ref="105" ControlType="XRTable" Name="table105" SizeF="698.51,26.40" LocationFloat="0.00,89.76" Dpi="96" Borders="All" Padding="2,2,0,0,96">
+          <Rows>
+            <Item1 Ref="106" ControlType="XRTableRow" Name="tr106" SizeF="698.51,26.40" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="107" ControlType="XRTableCell" Name="tc107" Weight="1" Text="Inspection No:" Font="Arial, 10pt, style=Bold" BackColor="255,230,230,230" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="108" ControlType="XRTableCell" Name="tc108" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item1>
+          </Rows>
+        </Item4>
+        <Item5 Ref="109" ControlType="XRTable" Name="table109" SizeF="698.51,125.66" LocationFloat="0.00,122.50" Dpi="96" Borders="All" Padding="2,2,0,0,96">
+          <Rows>
+            <Item1 Ref="110" ControlType="XRTableRow" Name="tr110" SizeF="698.51,20.94" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="111" ControlType="XRTableCell" Name="tc111" Weight="2" Text="Details of Registered Business" Font="Arial, 10pt, style=Bold" BackColor="255,230,230,230" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="112" ControlType="XRTableCell" Name="tc112" Weight="1" Text="Site Address" Font="Arial, 10pt, style=Bold" BackColor="255,230,230,230" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item3 Ref="113" ControlType="XRTableCell" Name="tc113" Weight="1" Text="Customer Address" Font="Arial, 10pt, style=Bold" BackColor="255,230,230,230" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item1>
+            <Item2 Ref="114" ControlType="XRTableRow" Name="tr114" SizeF="698.51,20.94" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="115" ControlType="XRTableCell" Name="tc115" Weight="1" Text="Business name:" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="116" ControlType="XRTableCell" Name="tc116" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item3 Ref="117" ControlType="XRTableCell" Name="tc117" Weight="1" RowSpan="5" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item4 Ref="118" ControlType="XRTableCell" Name="tc118" Weight="1" RowSpan="4" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item2>
+            <Item3 Ref="119" ControlType="XRTableRow" Name="tr119" SizeF="698.51,20.94" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="120" ControlType="XRTableCell" Name="tc120" Weight="1" Text="OFTEC Co Reg No" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="121" ControlType="XRTableCell" Name="tc121" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item3 Ref="122" ControlType="XRTableCell" Name="tc122" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item4 Ref="123" ControlType="XRTableCell" Name="tc123" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item3>
+            <Item4 Ref="124" ControlType="XRTableRow" Name="tr124" SizeF="698.51,20.94" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="125" ControlType="XRTableCell" Name="tc125" Weight="1" Text="Engineers name:" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="126" ControlType="XRTableCell" Name="tc126" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item3 Ref="127" ControlType="XRTableCell" Name="tc127" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item4 Ref="128" ControlType="XRTableCell" Name="tc128" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item4>
+            <Item5 Ref="129" ControlType="XRTableRow" Name="tr129" SizeF="698.51,20.94" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="130" ControlType="XRTableCell" Name="tc130" Weight="1" Text="Technician’s Reg No:" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="131" ControlType="XRTableCell" Name="tc131" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item3 Ref="132" ControlType="XRTableCell" Name="tc132" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item4 Ref="133" ControlType="XRTableCell" Name="tc133" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item5>
+            <Item6 Ref="134" ControlType="XRTableRow" Name="tr134" SizeF="698.51,20.94" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="135" ControlType="XRTableCell" Name="tc135" Weight="1" Text="Address:" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="136" ControlType="XRTableCell" Name="tc136" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item3 Ref="137" ControlType="XRTableCell" Name="tc137" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item4 Ref="138" ControlType="XRTableCell" Name="tc138" Weight="1" Text="Page 1 of 1" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item6>
+          </Rows>
+        </Item5>
+      </Controls>
+    </Item1>
+    <Item2 Ref="139" ControlType="DetailBand" Name="Detail" HeightF="803.55" Dpi="96">
+      <Controls>
+        <Item1 Ref="140" ControlType="XRTable" Name="table140" SizeF="698.51,81.31" LocationFloat="0.00,0.00" Dpi="96" Borders="All" Padding="2,2,0,0,96">
+          <Rows>
+            <Item1 Ref="141" ControlType="XRTableRow" Name="tr141" SizeF="698.51,27.10" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="142" ControlType="XRTableCell" Name="tc142" Weight="4" Text="Pre-commissioning checks / legislation" Font="Arial, 10pt, style=Bold" BackColor="255,230,230,230" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item1>
+            <Item2 Ref="143" ControlType="XRTableRow" Name="tr143" SizeF="698.51,27.10" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="144" ControlType="XRTableCell" Name="tc144" Weight="3" Text="1. Is there a completed CD/10 (or equivalent) for the installation works?" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="145" ControlType="XRTableCell" Name="tc145" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item2>
+            <Item3 Ref="146" ControlType="XRTableRow" Name="tr146" SizeF="698.51,27.10" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="147" ControlType="XRTableCell" Name="tc147" Weight="1" Text="2. If the Installer is not a Competent Person, is there a Building Notice?" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="148" ControlType="XRTableCell" Name="tc148" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item3 Ref="149" ControlType="XRTableCell" Name="tc149" Weight="1" Text="If Yes, insert Ref. No." Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item4 Ref="150" ControlType="XRTableCell" Name="tc150" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item3>
+          </Rows>
+        </Item1>
+        <Item2 Ref="151" ControlType="XRTable" Name="table151" SizeF="698.51,84.48" LocationFloat="0.00,88.70" Dpi="96" Borders="All" Padding="2,2,0,0,96">
+          <Rows>
+            <Item1 Ref="152" ControlType="XRTableRow" Name="tr152" SizeF="698.51,16.90" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="153" ControlType="XRTableCell" Name="tc153" Weight="4" Text="Appliance Details" Font="Arial, 10pt, style=Bold" BackColor="255,230,230,230" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item1>
+            <Item2 Ref="154" ControlType="XRTableRow" Name="tr154" SizeF="698.51,16.90" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="155" ControlType="XRTableCell" Name="tc155" Weight="1" Text="Appliance Make Model" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="156" ControlType="XRTableCell" Name="tc156" Weight="3" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item2>
+            <Item3 Ref="157" ControlType="XRTableRow" Name="tr157" SizeF="698.51,16.90" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="158" ControlType="XRTableCell" Name="tc158" Weight="1" Text="Appliance Serial No.:" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="159" ControlType="XRTableCell" Name="tc159" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item3 Ref="160" ControlType="XRTableCell" Name="tc160" Weight="1" Text="Burner Make Model:" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item4 Ref="161" ControlType="XRTableCell" Name="tc161" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item3>
+            <Item4 Ref="162" ControlType="XRTableRow" Name="tr162" SizeF="698.51,16.90" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="163" ControlType="XRTableCell" Name="tc163" Weight="1" Text="Tank Type:" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="164" ControlType="XRTableCell" Name="tc164" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item3 Ref="165" ControlType="XRTableCell" Name="tc165" Weight="1" Text="Type:" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item4 Ref="166" ControlType="XRTableCell" Name="tc166" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item4>
+            <Item5 Ref="167" ControlType="XRTableRow" Name="tr167" SizeF="698.51,16.90" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="168" ControlType="XRTableCell" Name="tc168" Weight="1" Text="Fuel Type:" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="169" ControlType="XRTableCell" Name="tc169" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item3 Ref="170" ControlType="XRTableCell" Name="tc170" Weight="1" Text="Flue Type:" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item4 Ref="171" ControlType="XRTableCell" Name="tc171" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item5>
+          </Rows>
+        </Item2>
+        <Item4 Ref="172" ControlType="XRTable" Name="table172" SizeF="698.51,325.25" LocationFloat="0.00,211.20" Dpi="96" Borders="All" Padding="2,2,0,0,96">
+          <Rows>
+            <Item1 Ref="173" ControlType="XRTableRow" Name="tr173" SizeF="698.51,19.13" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="174" ControlType="XRTableCell" Name="tc174" Weight="5" Text="Oil firing service and Commissioning schedule (Confirm in accordance with checklists on the reverse and tick as appropriate)" Font="Arial, 10pt, style=Bold" BackColor="255,230,230,230" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item1>
+            <Item2 Ref="175" ControlType="XRTableRow" Name="tr175" SizeF="698.51,19.13" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="176" ControlType="XRTableCell" Name="tc176" Weight="1" Text="No." Font="Arial, 10pt, style=Bold" BackColor="255,230,230,230" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="177" ControlType="XRTableCell" Name="tc177" Weight="1" Text="Schedule Item" Font="Arial, 10pt, style=Bold" BackColor="255,230,230,230" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item3 Ref="178" ControlType="XRTableCell" Name="tc178" Weight="1" Text="Checked?" Font="Arial, 10pt, style=Bold" BackColor="255,230,230,230" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item4 Ref="179" ControlType="XRTableCell" Name="tc179" Weight="1" Text="Passed?" Font="Arial, 10pt, style=Bold" BackColor="255,230,230,230" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item5 Ref="180" ControlType="XRTableCell" Name="tc180" Weight="1" Text="Parts fitted / Observations" Font="Arial, 10pt, style=Bold" BackColor="255,230,230,230" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item2>
+            <Item3 Ref="181" ControlType="XRTableRow" Name="tr181" SizeF="698.51,19.13" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="182" ControlType="XRTableCell" Name="tc182" Weight="1" Text="1." Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="183" ControlType="XRTableCell" Name="tc183" Weight="1" Text="Oil storage" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item3 Ref="184" ControlType="XRTableCell" Name="tc184" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item4 Ref="185" ControlType="XRTableCell" Name="tc185" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item5 Ref="186" ControlType="XRTableCell" Name="tc186" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item3>
+            <Item4 Ref="187" ControlType="XRTableRow" Name="tr187" SizeF="698.51,19.13" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="188" ControlType="XRTableCell" Name="tc188" Weight="1" Text="2." Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="189" ControlType="XRTableCell" Name="tc189" Weight="1" Text="Oil supply system" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item3 Ref="190" ControlType="XRTableCell" Name="tc190" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item4 Ref="191" ControlType="XRTableCell" Name="tc191" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item5 Ref="192" ControlType="XRTableCell" Name="tc192" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item4>
+            <Item5 Ref="193" ControlType="XRTableRow" Name="tr193" SizeF="698.51,19.13" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="194" ControlType="XRTableCell" Name="tc194" Weight="1" Text="3." Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="195" ControlType="XRTableCell" Name="tc195" Weight="1" Text="Air Supply" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item3 Ref="196" ControlType="XRTableCell" Name="tc196" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item4 Ref="197" ControlType="XRTableCell" Name="tc197" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item5 Ref="198" ControlType="XRTableCell" Name="tc198" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item5>
+            <Item6 Ref="199" ControlType="XRTableRow" Name="tr199" SizeF="698.51,19.13" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="200" ControlType="XRTableCell" Name="tc200" Weight="1" Text="4." Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="201" ControlType="XRTableCell" Name="tc201" Weight="1" Text="Chimney/Flue" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item3 Ref="202" ControlType="XRTableCell" Name="tc202" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item4 Ref="203" ControlType="XRTableCell" Name="tc203" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item5 Ref="204" ControlType="XRTableCell" Name="tc204" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item6>
+            <Item7 Ref="205" ControlType="XRTableRow" Name="tr205" SizeF="698.51,19.13" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="206" ControlType="XRTableCell" Name="tc206" Weight="1" Text="5." Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="207" ControlType="XRTableCell" Name="tc207" Weight="1" Text="Electrical safety" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item3 Ref="208" ControlType="XRTableCell" Name="tc208" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item4 Ref="209" ControlType="XRTableCell" Name="tc209" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item5 Ref="210" ControlType="XRTableCell" Name="tc210" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item7>
+            <Item8 Ref="211" ControlType="XRTableRow" Name="tr211" SizeF="698.51,19.13" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="212" ControlType="XRTableCell" Name="tc212" Weight="1" Text="6." Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="213" ControlType="XRTableCell" Name="tc213" Weight="1" Text="Heat Exchanger" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item3 Ref="214" ControlType="XRTableCell" Name="tc214" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item4 Ref="215" ControlType="XRTableCell" Name="tc215" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item5 Ref="216" ControlType="XRTableCell" Name="tc216" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item8>
+            <Item9 Ref="217" ControlType="XRTableRow" Name="tr217" SizeF="698.51,19.13" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="218" ControlType="XRTableCell" Name="tc218" Weight="1" Text="7." Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="219" ControlType="XRTableCell" Name="tc219" Weight="1" Text="Combustion chamber" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item3 Ref="220" ControlType="XRTableCell" Name="tc220" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item4 Ref="221" ControlType="XRTableCell" Name="tc221" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item5 Ref="222" ControlType="XRTableCell" Name="tc222" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item9>
+            <Item10 Ref="223" ControlType="XRTableRow" Name="tr223" SizeF="698.51,19.13" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="224" ControlType="XRTableCell" Name="tc224" Weight="1" Text="8." Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="225" ControlType="XRTableCell" Name="tc225" Weight="1" Text="Pressure jet burner" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item3 Ref="226" ControlType="XRTableCell" Name="tc226" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item4 Ref="227" ControlType="XRTableCell" Name="tc227" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item5 Ref="228" ControlType="XRTableCell" Name="tc228" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item10>
+            <Item11 Ref="229" ControlType="XRTableRow" Name="tr229" SizeF="698.51,19.13" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="230" ControlType="XRTableCell" Name="tc230" Weight="1" Text="9." Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="231" ControlType="XRTableCell" Name="tc231" Weight="1" Text="Vaporising and wallflame burner" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item3 Ref="232" ControlType="XRTableCell" Name="tc232" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item4 Ref="233" ControlType="XRTableCell" Name="tc233" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item5 Ref="234" ControlType="XRTableCell" Name="tc234" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item11>
+            <Item12 Ref="235" ControlType="XRTableRow" Name="tr235" SizeF="698.51,19.13" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="236" ControlType="XRTableCell" Name="tc236" Weight="1" Text="10." Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="237" ControlType="XRTableCell" Name="tc237" Weight="1" Text="Wallflame burner (additional)" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item3 Ref="238" ControlType="XRTableCell" Name="tc238" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item4 Ref="239" ControlType="XRTableCell" Name="tc239" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item5 Ref="240" ControlType="XRTableCell" Name="tc240" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item12>
+            <Item13 Ref="241" ControlType="XRTableRow" Name="tr241" SizeF="698.51,19.13" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="242" ControlType="XRTableCell" Name="tc242" Weight="1" Text="11." Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="243" ControlType="XRTableCell" Name="tc243" Weight="1" Text="Appliance safety controls" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item3 Ref="244" ControlType="XRTableCell" Name="tc244" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item4 Ref="245" ControlType="XRTableCell" Name="tc245" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item5 Ref="246" ControlType="XRTableCell" Name="tc246" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item13>
+            <Item14 Ref="247" ControlType="XRTableRow" Name="tr247" SizeF="698.51,19.13" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="248" ControlType="XRTableCell" Name="tc248" Weight="5" Text="Heating system service" Font="Arial, 10pt, style=Bold" BackColor="255,230,230,230" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item14>
+            <Item15 Ref="249" ControlType="XRTableRow" Name="tr249" SizeF="698.51,19.13" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="250" ControlType="XRTableCell" Name="tc250" Weight="1" Text="12." Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="251" ControlType="XRTableCell" Name="tc251" Weight="1" Text="Controls check" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item3 Ref="252" ControlType="XRTableCell" Name="tc252" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item4 Ref="253" ControlType="XRTableCell" Name="tc253" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item5 Ref="254" ControlType="XRTableCell" Name="tc254" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item15>
+            <Item16 Ref="255" ControlType="XRTableRow" Name="tr255" SizeF="698.51,19.13" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="256" ControlType="XRTableCell" Name="tc256" Weight="1" Text="13." Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="257" ControlType="XRTableCell" Name="tc257" Weight="1" Text="System check - Hot water type" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item3 Ref="258" ControlType="XRTableCell" Name="tc258" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item4 Ref="259" ControlType="XRTableCell" Name="tc259" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item5 Ref="260" ControlType="XRTableCell" Name="tc260" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item16>
+            <Item17 Ref="261" ControlType="XRTableRow" Name="tr261" SizeF="698.51,19.13" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="262" ControlType="XRTableCell" Name="tc262" Weight="1" Text="14." Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="263" ControlType="XRTableCell" Name="tc263" Weight="1" Text="System check - Warm air type" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item3 Ref="264" ControlType="XRTableCell" Name="tc264" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item4 Ref="265" ControlType="XRTableCell" Name="tc265" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item5 Ref="266" ControlType="XRTableCell" Name="tc266" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item17>
+          </Rows>
+        </Item4>
+        <Item5 Ref="267" ControlType="XRTable" Name="table267" SizeF="698.51,124.61" LocationFloat="0.00,545.95" Dpi="96" Borders="All" Padding="2,2,0,0,96">
+          <Rows>
+            <Item1 Ref="268" ControlType="XRTableRow" Name="tr268" SizeF="698.51,17.80" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="269" ControlType="XRTableCell" Name="tc269" Weight="8" Text="Test Results" Font="Arial, 10pt, style=Bold" BackColor="255,230,230,230" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item1>
+            <Item2 Ref="270" ControlType="XRTableRow" Name="tr270" SizeF="698.51,17.80" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="271" ControlType="XRTableCell" Name="tc271" Weight="5" Text="It is important to keep a record of the combustion analysis results - if they have been carried out electronically a copy of the printout should be attached to all copies of the service schedule and report." Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="272" ControlType="XRTableCell" Name="tc272" Weight="1" Text="Print out attached?" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item3 Ref="273" ControlType="XRTableCell" Name="tc273" Weight="1" Text="Yes ☐" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item4 Ref="274" ControlType="XRTableCell" Name="tc274" Weight="1" Text="No ☐" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item2>
+            <Item3 Ref="275" ControlType="XRTableRow" Name="tr275" SizeF="698.51,17.80" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="276" ControlType="XRTableCell" Name="tc276" Weight="1" Text="Pump pressure:" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="277" ControlType="XRTableCell" Name="tc277" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item3 Ref="278" ControlType="XRTableCell" Name="tc278" Weight="1" Text="Efficiency Nett (%):" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item4 Ref="279" ControlType="XRTableCell" Name="tc279" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item5 Ref="280" ControlType="XRTableCell" Name="tc280" Weight="1" Text="Efficiency Gross:" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item6 Ref="281" ControlType="XRTableCell" Name="tc281" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item7 Ref="282" ControlType="XRTableCell" Name="tc282" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item8 Ref="283" ControlType="XRTableCell" Name="tc283" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item3>
+            <Item4 Ref="284" ControlType="XRTableRow" Name="tr284" SizeF="698.51,17.80" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="285" ControlType="XRTableCell" Name="tc285" Weight="1" Text="Pump vacumn:" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="286" ControlType="XRTableCell" Name="tc286" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item3 Ref="287" ControlType="XRTableCell" Name="tc287" Weight="1" Text="Smoke No." Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item4 Ref="288" ControlType="XRTableCell" Name="tc288" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item5 Ref="289" ControlType="XRTableCell" Name="tc289" Weight="1" Text="CO (ppm)" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item6 Ref="290" ControlType="XRTableCell" Name="tc290" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item7 Ref="291" ControlType="XRTableCell" Name="tc291" Weight="1" Text="Excess Air (%)" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item8 Ref="292" ControlType="XRTableCell" Name="tc292" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item4>
+            <Item5 Ref="293" ControlType="XRTableRow" Name="tr293" SizeF="698.51,17.80" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="294" ControlType="XRTableCell" Name="tc294" Weight="1" Text="Draught:" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="295" ControlType="XRTableCell" Name="tc295" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item3 Ref="296" ControlType="XRTableCell" Name="tc296" Weight="1" Text="Nozzle (size):" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item4 Ref="297" ControlType="XRTableCell" Name="tc297" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item5 Ref="298" ControlType="XRTableCell" Name="tc298" Weight="1" Text="(angle)" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item6 Ref="299" ControlType="XRTableCell" Name="tc299" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item7 Ref="300" ControlType="XRTableCell" Name="tc300" Weight="1" Text="(pattern)" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item8 Ref="301" ControlType="XRTableCell" Name="tc301" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item5>
+            <Item6 Ref="302" ControlType="XRTableRow" Name="tr302" SizeF="698.51,17.80" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="303" ControlType="XRTableCell" Name="tc303" Weight="1" Text="CO₂ (%)" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="304" ControlType="XRTableCell" Name="tc304" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item3 Ref="305" ControlType="XRTableCell" Name="tc305" Weight="1" Text="Flow rate (oil)" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item4 Ref="306" ControlType="XRTableCell" Name="tc306" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item5 Ref="307" ControlType="XRTableCell" Name="tc307" Weight="1" Text="Low (cc/min)" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item6 Ref="308" ControlType="XRTableCell" Name="tc308" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item7 Ref="309" ControlType="XRTableCell" Name="tc309" Weight="1" Text="High (cc/min)" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item8 Ref="310" ControlType="XRTableCell" Name="tc310" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item6>
+            <Item7 Ref="311" ControlType="XRTableRow" Name="tr311" SizeF="698.51,17.80" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="312" ControlType="XRTableCell" Name="tc312" Weight="1" Text="Flue gas temp (°C)" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="313" ControlType="XRTableCell" Name="tc313" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item3 Ref="314" ControlType="XRTableCell" Name="tc314" Weight="1" Text="Flow rate (DHW)" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item4 Ref="315" ControlType="XRTableCell" Name="tc315" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item5 Ref="316" ControlType="XRTableCell" Name="tc316" Weight="1" Text="Cold (l/min)" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item6 Ref="317" ControlType="XRTableCell" Name="tc317" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item7 Ref="318" ControlType="XRTableCell" Name="tc318" Weight="1" Text="Hot (l/min)" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item8 Ref="319" ControlType="XRTableCell" Name="tc319" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item7>
+          </Rows>
+        </Item5>
+        <Item6 Ref="320" ControlType="XRTable" Name="table320" SizeF="698.51,66.53" LocationFloat="0.00,671.62" Dpi="96" Borders="All" Padding="2,2,0,0,96">
+          <Rows>
+            <Item1 Ref="321" ControlType="XRTableRow" Name="tr321" SizeF="698.51,16.63" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="322" ControlType="XRTableCell" Name="tc322" Weight="1" Text="Recipient’s name:" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="323" ControlType="XRTableCell" Name="tc323" Weight="3" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item3 Ref="324" ControlType="XRTableCell" Name="tc324" Weight="1" RowSpan="2" Text="Recipient’s signature:" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item4 Ref="325" ControlType="XRTableCell" Name="tc325" Weight="1" RowSpan="2" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item1>
+            <Item2 Ref="326" ControlType="XRTableRow" Name="tr326" SizeF="698.51,16.63" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="327" ControlType="XRTableCell" Name="tc327" Weight="1" Text="Date:" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="328" ControlType="XRTableCell" Name="tc328" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item3 Ref="329" ControlType="XRTableCell" Name="tc329" Weight="1" Text="Recipient’s status:" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item4 Ref="330" ControlType="XRTableCell" Name="tc330" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item5 Ref="331" ControlType="XRTableCell" Name="tc331" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item6 Ref="332" ControlType="XRTableCell" Name="tc332" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item2>
+            <Item3 Ref="333" ControlType="XRTableRow" Name="tr333" SizeF="698.51,16.63" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="334" ControlType="XRTableCell" Name="tc334" Weight="1" Text="Technician’s name:" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="335" ControlType="XRTableCell" Name="tc335" Weight="3" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item3 Ref="336" ControlType="XRTableCell" Name="tc336" Weight="1" RowSpan="2" Text="Technician’s signature:" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item4 Ref="337" ControlType="XRTableCell" Name="tc337" Weight="1" RowSpan="2" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item3>
+            <Item4 Ref="338" ControlType="XRTableRow" Name="tr338" SizeF="698.51,16.63" Weight="1" Dpi="96">
+              <Cells>
+                <Item1 Ref="339" ControlType="XRTableCell" Name="tc339" Weight="1" Text="Date:" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item2 Ref="340" ControlType="XRTableCell" Name="tc340" Weight="3" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item3 Ref="341" ControlType="XRTableCell" Name="tc341" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+                <Item4 Ref="342" ControlType="XRTableCell" Name="tc342" Weight="1" Text="" Font="Arial, 9pt" BackColor="White" ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />
+              </Cells>
+            </Item4>
+          </Rows>
+        </Item6>
+        <Item8 Ref="343" ControlType="XRLabel" Name="lbl343" SizeF="123.97,39.07" LocationFloat="574.54,741.31" Text="jla.com | 0800 591 903" Font="Arial, 14pt, style=Bold" Dpi="96" TextAlignment="MiddleCenter" />
+      </Controls>
+    </Item2>
+  </Bands>
+</XtraReportsLayoutSerializer>

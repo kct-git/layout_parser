@@ -1,0 +1,25 @@
+<Item1 Ref="901" ControlType="XRTable" Name="table901" SizeF="980,100" LocationFloat="0,0" Dpi="96" Borders="All">
+  <Rows>
+    <Item1 Ref="902" ControlType="XRTableRow" Name="tr902" Weight="1" Dpi="96">
+      <Cells>
+        <Item1 Ref="903" ControlType="XRTableCell" Name="tc903" Weight="4" Text="Additional Checks (Yes/No/NA)" Font="Arial, 9.75pt, style=Bold" Dpi="96" />
+      </Cells>
+    </Item1>
+    <Item2 Ref="904" ControlType="XRTableRow" Name="tr904" Weight="1" Dpi="96">
+      <Cells>
+        <Item1 Ref="905" ControlType="XRTableCell" Name="tc905" Weight="1" Text="Flue flow test satisfactory" Font="Arial, 9pt" Dpi="96" />
+        <Item2 Ref="906" ControlType="XRTableCell" Name="tc906" Weight="1" Text="Ventilation satisfactory (see also Ventilation type)?" Font="Arial, 9pt" Dpi="96" />
+        <Item3 Ref="907" ControlType="XRTableCell" Name="tc907" Weight="1" Text="Flame proving/safety devices operating correctly?" Font="Arial, 9pt" Dpi="96" />
+        <Item4 Ref="908" ControlType="XRTableCell" Name="tc908" Weight="1" Text="Burner lock-out time (seconds)?" Font="Arial, 9pt" Dpi="96" />
+      </Cells>
+    </Item2>
+    <Item3 Ref="909" ControlType="XRTableRow" Name="tr909" Weight="1" Dpi="96">
+      <Cells>
+        <Item1 Ref="910" ControlType="XRTableCell" Name="tc910" Weight="1" Text="Spillage test satisfactory?" Font="Arial, 9pt" Dpi="96" />
+        <Item2 Ref="911" ControlType="XRTableCell" Name="tc911" Weight="1" Text="Temperature and limit thermostats operating correctly?" Font="Arial, 9pt" Dpi="96" />
+        <Item3 Ref="912" ControlType="XRTableCell" Name="tc912" Weight="1" Text="Air/gas pressure switch operating correctly?" Font="Arial, 9pt" Dpi="96" />
+        <Item4 Ref="913" ControlType="XRTableCell" Name="tc913" Weight="1" Text="Appliance serviced?" Font="Arial, 9pt" Dpi="96" />
+      </Cells>
+    </Item3>
+  </Rows>
+</Item1>
