@@ -39,14 +39,16 @@ def calculate_dimensions(bbox_str):
     return rel_loc_x, abs_loc_y, width, height
 
 
-def generate_table_xml(table_soup, loc_x, relative_y, table_width, table_height, get_ref_func, item_idx):
+def generate_table_xml(html_rows, loc_x, relative_y, table_width, table_height, get_ref_func, item_idx):
     """Generates XRTable XML using the virtual grid logic with strict weight balancing."""
+    if not html_rows:
+        return ""
+        
     table_ref = get_ref_func()
     xml_output = []
     
     # 1. Virtual Grid Pass (Unchanged)
     grid = {}
-    html_rows = table_soup.find_all('tr')
     max_cols = 0
     total_rows = len(html_rows)
     row_height = table_height / total_rows if total_rows > 0 else 25.0
@@ -76,13 +78,11 @@ def generate_table_xml(table_soup, loc_x, relative_y, table_width, table_height,
             max_cols = max(max_cols, c_idx)
 
     # 2. Table XML Generation
-    # FIX: Use the passed item_idx ONLY for the root XRTable node
     xml_output.append(f'        <Item{item_idx} Ref="{table_ref}" ControlType="XRTable" Name="table{table_ref}" SizeF="{table_width:.2f},{table_height:.2f}" LocationFloat="{loc_x:.2f},{relative_y:.2f}" Dpi="96" Borders="All" Padding="2,2,0,0,96">')
     xml_output.append('          <Rows>')
 
     for r_idx in range(total_rows):
         row_ref = get_ref_func()
-        # Internal rows always start at Item1, Item2, etc.
         xml_output.append(f'            <Item{r_idx + 1} Ref="{row_ref}" ControlType="XRTableRow" Name="tr{row_ref}" SizeF="{table_width:.2f},{row_height:.2f}" Weight="1" Dpi="96">')
         xml_output.append('              <Cells>')
         
@@ -106,7 +106,6 @@ def generate_table_xml(table_soup, loc_x, relative_y, table_width, table_height,
             font_attr = ' Font="Arial, 10pt, style=Bold"' if cell_data['is_header'] and not cell_data['is_dummy'] else ' Font="Arial, 9pt"'
             back_color = ' BackColor="255,230,230,230"' if cell_data['is_header'] and not cell_data['is_dummy'] else ' BackColor="White"'
                 
-            # Internal cells always start at Item1, Item2, etc.
             node = f'                <Item{cell_item_num} Ref="{cell_ref}" ControlType="XRTableCell" Name="tc{cell_ref}" Weight="{weight}"{rowspan_attr} Text="{text}"{font_attr}{back_color} ForeColor="Black" TextAlignment="MiddleLeft" Dpi="96" />'
             xml_output.append(node)
             
@@ -117,7 +116,6 @@ def generate_table_xml(table_soup, loc_x, relative_y, table_width, table_height,
         xml_output.append(f'            </Item{r_idx + 1}>')
 
     xml_output.append('          </Rows>')
-    # FIX: Close with the passed item_idx
     xml_output.append(f'        </Item{item_idx}>')
     return '\n'.join(xml_output)
 
@@ -131,14 +129,19 @@ def convert_html_to_repx(html_content, start_ref=100):
         ref_counter += 1
         return ref_counter
 
-    # 1. Group Elements by Band
     bands_data = {
+        "TopMarginBand": {"items": [], "min_y": float('inf'), "max_y": 0},
         "ReportHeaderBand": {"items": [], "min_y": float('inf'), "max_y": 0},
-        "DetailBand": {"items": [], "min_y": float('inf'), "max_y": 0}
-        # DetailReportBand instead of DetailBand
-        # ReportFooter Band
-        # PageFooter Band
-        # TopMargin / BottomMargin
+        "DetailBand": {"items": [], "min_y": float('inf'), "max_y": 0},
+        "GroupHeaderBand": {"items": [], "min_y": float('inf'), "max_y": 0},
+        "DetailReportBand": {
+            "sub_reports": [], 
+            "min_y": float('inf'), "max_y": 0
+        },
+        "GroupFooterBand": {"items": [], "min_y": float('inf'), "max_y": 0},
+        "ReportFooterBand": {"items": [], "min_y": float('inf'), "max_y": 0},
+        "PageFooterBand": {"items": [], "min_y": float('inf'), "max_y": 0},
+        "BottomMarginBand": {"items": [], "min_y": float('inf'), "max_y": 0}
     }
 
     for div in soup.find_all('div', attrs={'data-label': True}):
@@ -146,24 +149,71 @@ def convert_html_to_repx(html_content, start_ref=100):
         bbox = div.get('data-bbox')
         loc_x, loc_y, width, height = calculate_dimensions(bbox)
         
-        # Route based on prefix
-        target_band = "ReportHeaderBand" if "Report-Header" in label else "DetailBand"
+        target_band_ref = None
+        is_sub_report = False
         
-        bands_data[target_band]["items"].append({
-            "div": div, "label": label, 
-            "x": loc_x, "y": loc_y, "w": width, "h": height
-        })
-        
-        # Track band boundaries to calculate total height and relative offsets later
-        bands_data[target_band]["min_y"] = min(bands_data[target_band]["min_y"], loc_y)
-        bands_data[target_band]["max_y"] = max(bands_data[target_band]["max_y"], loc_y + height)
+        if "Top-Margin" in label:
+            target_band_ref = bands_data["TopMarginBand"]
+        elif "Report-Header" in label:
+            target_band_ref = bands_data["ReportHeaderBand"]
+        elif "Detail-Band" in label:
+            target_band_ref = bands_data["DetailBand"]
+        elif "Group-Header" in label:
+            target_band_ref = bands_data["GroupHeaderBand"]
+        elif "Detail-Report" in label or "Detail" in label:
+            target_band_ref = bands_data["DetailReportBand"]
+            is_sub_report = True
+        elif "Group-Footer" in label:
+            target_band_ref = bands_data["GroupFooterBand"]
+        elif "Report-Footer" in label:
+            target_band_ref = bands_data["ReportFooterBand"]
+        elif "Page-Footer" in label:
+            target_band_ref = bands_data["PageFooterBand"]
+        elif "Bottom-Margin" in label:
+            target_band_ref = bands_data["BottomMarginBand"]
+        else:
+            target_band_ref = bands_data["DetailReportBand"]
+            is_sub_report = True
+            
+        if is_sub_report:
+            target_band_ref["sub_reports"].append({
+                "div": div, "label": label, 
+                "x": loc_x, "y": loc_y, "w": width, "h": height
+            })
+        else:
+            target_band_ref["items"].append({
+                "div": div, "label": label, 
+                "x": loc_x, "y": loc_y, "w": width, "h": height
+            })
+            
+        target_band_ref["min_y"] = min(target_band_ref["min_y"], loc_y)
+        target_band_ref["max_y"] = max(target_band_ref["max_y"], loc_y + height)
 
-    # 2. Generate XML Orchestration
-    # xml_output = [
-    #     '<?xml version="1.0" encoding="utf-8"?>',
-    #     '<XtraReportsLayoutSerializer SerializerVersion="23.2.4.0" Ref="1" ControlType="DevExpress.XtraReports.UI.XtraReport" Name="GeneratedRep" PageWidth="793" PageHeight="1122" Version="23.2" Dpi="96" ReportUnit="Pixels">',
-    #     '  <Bands>'
-    # ]
+    def generate_controls_xml(items, band_min_y, get_ref, starting_idx=1):
+        controls_xml = []
+        control_idx = starting_idx
+        for item in items:
+            relative_y = item["y"] - band_min_y
+            
+            if "Picture" in item["label"]:
+                pic_ref = get_ref()
+                controls_xml.append(f'        <Item{control_idx} Ref="{pic_ref}" ControlType="XRPictureBox" Name="pic{pic_ref}" SizeF="{item["w"]:.2f},{item["h"]:.2f}" LocationFloat="{item["x"]:.2f},{relative_y:.2f}" Dpi="96" Sizing="ZoomImage" />')
+                control_idx += 1
+            
+            elif "Table" in item["label"]:
+                table_node = item["div"].find('table')
+                if table_node:
+                    html_rows = table_node.find_all('tr')
+                    table_xml = generate_table_xml(html_rows, item["x"], relative_y, item["w"], item["h"], get_ref, control_idx)
+                    controls_xml.append(table_xml)
+                    control_idx += 1
+            
+            else:
+                lbl_ref = get_ref()
+                text = " ".join([t.get_text() for t in item["div"].find_all(['h1', 'h2', 'p', 'span'])]) if item["div"].find(['h1', 'h2']) else item["div"].get_text(strip=True)
+                controls_xml.append(f'        <Item{control_idx} Ref="{lbl_ref}" ControlType="XRLabel" Name="lbl{lbl_ref}" SizeF="{item["w"]:.2f},{item["h"]:.2f}" LocationFloat="{item["x"]:.2f},{relative_y:.2f}" Text="{text}" Font="Arial, 10pt" Dpi="96" TextAlignment="MiddleCenter" />')
+                control_idx += 1
+        return controls_xml
 
     xml_output = [
         '<?xml version="1.0" encoding="utf-8"?>',
@@ -173,40 +223,101 @@ def convert_html_to_repx(html_content, start_ref=100):
 
     band_idx = 1
     for band_name, band_data in bands_data.items():
-        if not band_data["items"]:
-            continue # Skip empty bands
-
         band_ref = get_ref()
-        band_min_y = band_data["min_y"]
-        # Calculate how tall the band needs to be to fit all its items
-        band_height = band_data["max_y"] - band_min_y + 20 
-        
-        xml_output.append(f'    <Item{band_idx} Ref="{band_ref}" ControlType="{band_name}" Name="{band_name.replace("Band", "")}" HeightF="{band_height:.2f}" Dpi="96">')
-        xml_output.append('      <Controls>')
-        
-        for item_idx, item in enumerate(band_data["items"]):
-            # CRUCIAL: DevExpress items are positioned relative to their parent band!
-            relative_y = item["y"] - band_min_y
+        short_name = band_name.replace("Band", "")
+        if band_name not in ["TopMarginBand", "BottomMarginBand"]:
+            short_name += "1"
             
-            if "Picture" in item["label"]:
-                pic_ref = get_ref()
-                xml_output.append(f'        <Item{item_idx+1} Ref="{pic_ref}" ControlType="XRPictureBox" Name="pic{pic_ref}" SizeF="{item["w"]:.2f},{item["h"]:.2f}" LocationFloat="{item["x"]:.2f},{relative_y:.2f}" Dpi="96" Sizing="ZoomImage" />')
+        if band_name == "DetailReportBand":
+            has_sub_reports = len(band_data.get("sub_reports", [])) > 0
             
-            elif "Title" in item["label"] or "Text" in item["label"]:
-                lbl_ref = get_ref()
-                # Extract text from h1/h2 tags
-                text = " ".join([t.get_text() for t in item["div"].find_all(['h1', 'h2', 'p', 'span'])]) if item["div"].find(['h1', 'h2']) else item["div"].get_text(strip=True)
-                xml_output.append(f'        <Item{item_idx+1} Ref="{lbl_ref}" ControlType="XRLabel" Name="lbl{lbl_ref}" SizeF="{item["w"]:.2f},{item["h"]:.2f}" LocationFloat="{item["x"]:.2f},{relative_y:.2f}" Text="{text}" Font="Arial, 14pt, style=Bold" Dpi="96" TextAlignment="MiddleCenter" />')
+        if band_name == "DetailReportBand":
+            has_sub_reports = len(band_data.get("sub_reports", [])) > 0
             
-            elif "Table" in item["label"]:
-                table_node = item["div"].find('table')
-                if table_node:
-                    # Pass item_idx+1 directly into the function
-                    table_xml = generate_table_xml(table_node, item["x"], relative_y, item["w"], item["h"], get_ref, item_idx+1)
-                    xml_output.append(table_xml)
+            if not has_sub_reports:
+                xml_output.append(f'    <Item{band_idx} Ref="{band_ref}" ControlType="{band_name}" Name="{short_name}" Level="0" Dpi="96">')
+                xml_output.append('      <ReportPrintOptions DetailCountOnEmptyDataSource="1" />')
+                xml_output.append(f'    </Item{band_idx}>')
+                band_idx += 1
+            else:
+                sub_report_level = 0
+                for sub_item in band_data["sub_reports"]:
+                    sub_ref = get_ref()
+                    sub_name = f"DetailReport{sub_report_level + 1}"
+                    xml_output.append(f'    <Item{band_idx} Ref="{sub_ref}" ControlType="DetailReportBand" Name="{sub_name}" Level="{sub_report_level}" Dpi="96">')
+                    xml_output.append('      <ReportPrintOptions DetailCountOnEmptyDataSource="1" />')
+                    xml_output.append('      <Bands>')
+                    
+                    if "Table" in sub_item["label"]:
+                        table_node = sub_item["div"].find('table')
+                        if table_node:
+                            html_rows = table_node.find_all('tr')
+                            header_rows = [tr for tr in html_rows if tr.find('th')]
+                            data_rows = [tr for tr in html_rows if tr.find('td') and not tr.find('th')]
+                            
+                            band_inner_idx = 1
+                            if header_rows:
+                                gh_ref = get_ref()
+                                gh_height = sub_item["h"] / len(html_rows) * len(header_rows) if len(html_rows) > 0 else 25.0
+                                xml_output.append(f'        <Item{band_inner_idx} Ref="{gh_ref}" ControlType="GroupHeaderBand" Name="GroupHeader_{sub_ref}" HeightF="{gh_height:.2f}" Dpi="96">')
+                                xml_output.append('          <Controls>')
+                                table_xml = generate_table_xml(header_rows, sub_item["x"], 0, sub_item["w"], gh_height, get_ref, 1)
+                                if table_xml:
+                                    indented_str = '\n'.join(['    ' + line for line in table_xml.split('\n')])
+                                    xml_output.append(indented_str)
+                                xml_output.append('          </Controls>')
+                                xml_output.append(f'        </Item{band_inner_idx}>')
+                                band_inner_idx += 1
+                                
+                            if data_rows:
+                                db_ref = get_ref()
+                                db_height = sub_item["h"] / len(html_rows) * len(data_rows) if len(html_rows) > 0 else 25.0
+                                xml_output.append(f'        <Item{band_inner_idx} Ref="{db_ref}" ControlType="DetailBand" Name="Detail_{sub_ref}" HeightF="{db_height:.2f}" Dpi="96">')
+                                xml_output.append('          <Controls>')
+                                table_xml = generate_table_xml(data_rows, sub_item["x"], 0, sub_item["w"], db_height, get_ref, 1)
+                                if table_xml:
+                                    indented_str = '\n'.join(['    ' + line for line in table_xml.split('\n')])
+                                    xml_output.append(indented_str)
+                                xml_output.append('          </Controls>')
+                                xml_output.append(f'        </Item{band_inner_idx}>')
+                    else:
+                        # Non-table item
+                        gh_ref = get_ref()
+                        xml_output.append(f'        <Item1 Ref="{gh_ref}" ControlType="GroupHeaderBand" Name="GroupHeader_{sub_ref}" HeightF="{sub_item["h"]:.2f}" Dpi="96">')
+                        xml_output.append('          <Controls>')
+                        controls_xml = generate_controls_xml([sub_item], sub_item["y"], get_ref, 1) 
+                        for control_str in controls_xml:
+                            indented_str = '\n'.join(['    ' + line for line in control_str.split('\n')])
+                            xml_output.append(indented_str)
+                        xml_output.append('          </Controls>')
+                        xml_output.append('        </Item1>')
+                        
+                    xml_output.append('      </Bands>')
+                    xml_output.append(f'    </Item{band_idx}>')
+                    band_idx += 1
+                    sub_report_level += 1
+        else:
+            if band_data.get("items"):
+                band_min_y = band_data["min_y"]
+                band_height = band_data["max_y"] - band_min_y + 20 
+            else:
+                if band_name == "TopMarginBand":
+                    band_height = MARGIN_TOP
+                elif band_name == "BottomMarginBand":
+                    band_height = MARGIN_BOTTOM
+                else:
+                    band_height = 0.0
 
-        xml_output.append('      </Controls>')
-        xml_output.append(f'    </Item{band_idx}>')
+            if not band_data.get("items"):
+                xml_output.append(f'    <Item{band_idx} Ref="{band_ref}" ControlType="{band_name}" Name="{short_name}" HeightF="{band_height:.2f}" Dpi="96" />')
+            else:
+                xml_output.append(f'    <Item{band_idx} Ref="{band_ref}" ControlType="{band_name}" Name="{short_name}" HeightF="{band_height:.2f}" Dpi="96">')
+                xml_output.append('      <Controls>')
+                controls_xml = generate_controls_xml(band_data["items"], band_min_y, get_ref)
+                xml_output.extend(controls_xml)
+                xml_output.append('      </Controls>')
+                xml_output.append(f'    </Item{band_idx}>')
+                
         band_idx += 1
 
     xml_output.append('  </Bands>')
@@ -221,230 +332,230 @@ def convert_html_to_repx(html_content, start_ref=100):
 if __name__ == "__main__":
     
     html_input = """
-    <div data-bbox="[36,18,170,86]" data-label="Report-Header-Picture">[Figure: JLA logo]</div>
+    <div data-bbox="[17,14,137,79]" data-label="Report-Header-Picture">[Figure: JLA logo]</div>
 
-<div data-bbox="[290,15,715,80]" data-label="Report-Header-Title"><h1>CD/11</h1><h2>Oil Firing Servicing and Commissioning Report</h2></div>
+<div data-bbox="[211,28,784,77]" data-label="Report-Header-Title">Plant Commissioning/Servicing Record (Non-Domestic)</div>
 
-<div data-bbox="[848,10,968,92]" data-label="Report-Header-Picture">[Figure: OFTEC Registered Business logo]</div>
+<div data-bbox="[885,34,974,240]" data-label="Report-Header-Picture">[Figure: Gas Safe Register logo with registration number 537976]</div>
 
-<div data-bbox="[39,95,977,120]" data-label="Report-Header-Table">
+<div data-bbox="[22,86,856,275]" data-label="Report-Header-Table">
 <table>
   <tr>
     <th>Inspection No:</th>
     <td></td>
-  </tr>
-</table>
-</div>
-
-<div data-bbox="[39,126,977,245]" data-label="Report-Header-Table">
-<table>
-  <tr>
-    <th colspan="2">Details of Registered Business</th>
-    <th>Site Address</th>
-    <th>Customer Address</th>
-  </tr>
-  <tr>
-    <td>Business name:</td>
+    <th>Company:</th>
     <td></td>
-    <td rowspan="5"></td>
-    <td rowspan="4"></td>
+    <th>Inspection Address:</th>
+    <th>Customer Address:</th>
   </tr>
   <tr>
-    <td>OFTEC Co Reg No</td>
+    <td colspan="2" rowspan="3"></td>
+    <th>Address:</th>
+    <td></td>
+    <td rowspan="3"></td>
+    <td rowspan="3"></td>
+  </tr>
+  <tr>
+    <th>Tel No:</th>
     <td></td>
   </tr>
   <tr>
-    <td>Engineers name:</td>
+    <th>Engineer Name:</th>
     <td></td>
   </tr>
   <tr>
-    <td>Technician’s Reg No:</td>
+    <td colspan="2"></td>
+    <th>Gas Safe Reg No:</th>
     <td></td>
-  </tr>
-  <tr>
-    <td>Address:</td>
-    <td></td>
+    <th>Inspection Date:</th>
     <td>Page 1 of 1</td>
   </tr>
 </table>
 </div>
 
-<div data-bbox="[39,256,977,333]" data-label="Detail-Report-Table">
+<div data-bbox="[22,280,945,407]" data-label="Detail-Report-Table">
 <table>
   <tr>
-    <th colspan="4">Pre-commissioning checks / legislation</th>
+    <th colspan="7">Appliance Details</th>
+    <th colspan="16">Combustion Checks</th>
   </tr>
   <tr>
-    <td colspan="3">1. Is there a completed CD/10 (or equivalent) for the installation works?</td>
-    <td></td>
+    <th>Location</th>
+    <th>Type</th>
+    <th>Make / Model</th>
+    <th>Serial Number</th>
+    <th>Burner Manufacturer</th>
+    <th>Flue Type</th>
+    <th>Firing Mode</th>
+    <th>Heat input rating (kW)</th>
+    <th>Gas burner pressure (mbar)</th>
+    <th>Gas rate (m&sup3;/hr)</th>
+    <th>Air/gas ratio control setting</th>
+    <th>Ambient (room) temp (&deg;C)</th>
+    <th>Flue gas temp (&deg;C)</th>
+    <th>Flue gas temp net (&deg;C)</th>
+    <th>Flue draught pressure (mbar)</th>
+    <th>Oxygen (O2) %</th>
+    <th>Carbon Monoxide (CO) ppm</th>
+    <th>Carbon Dioxide (CO2) %</th>
+    <th>NOx %</th>
+    <th>Excess air %</th>
+    <th>CO/CO2-ratio</th>
+    <th>Gross efficiency %</th>
+    <th>CO flue dilution ppm</th>
   </tr>
   <tr>
-    <td>2. If the Installer is not a Competent Person, is there a Building Notice?</td>
-    <td></td>
-    <td>If Yes, insert Ref. No.</td>
-    <td></td>
-  </tr>
-</table>
-</div>
-
-<div data-bbox="[39,340,977,420]" data-label="Detail-Report-Table">
-<table>
-  <tr>
-    <th colspan="4">Appliance Details</th>
-  </tr>
-  <tr>
-    <td>Appliance Make Model</td>
-    <td colspan="3"></td>
-  </tr>
-  <tr>
-    <td>Appliance Serial No.:</td>
-    <td></td>
-    <td>Burner Make Model:</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Tank Type:</td>
-    <td></td>
-    <td>Type:</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Fuel Type:</td>
-    <td></td>
-    <td>Flue Type:</td>
-    <td></td>
-  </tr>
-</table>
-</div>
-
-<div data-bbox="[39,430,977,455]" data-label="Detail-Report-Section-header"><h3>Call Type</h3></div>
-
-<div data-bbox="[39,456,977,764]" data-label="Detail-Report-Table">
-<table>
-  <tr>
-    <th colspan="5">Oil firing service and Commissioning schedule (Confirm in accordance with checklists on the reverse and tick as appropriate)</th>
-  </tr>
-  <tr>
-    <th>No.</th>
-    <th>Schedule Item</th>
-    <th>Checked?</th>
-    <th>Passed?</th>
-    <th>Parts fitted / Observations</th>
-  </tr>
-  <tr><td>1.</td><td>Oil storage</td><td></td><td></td><td></td></tr>
-  <tr><td>2.</td><td>Oil supply system</td><td></td><td></td><td></td></tr>
-  <tr><td>3.</td><td>Air Supply</td><td></td><td></td><td></td></tr>
-  <tr><td>4.</td><td>Chimney/Flue</td><td></td><td></td><td></td></tr>
-  <tr><td>5.</td><td>Electrical safety</td><td></td><td></td><td></td></tr>
-  <tr><td>6.</td><td>Heat Exchanger</td><td></td><td></td><td></td></tr>
-  <tr><td>7.</td><td>Combustion chamber</td><td></td><td></td><td></td></tr>
-  <tr><td>8.</td><td>Pressure jet burner</td><td></td><td></td><td></td></tr>
-  <tr><td>9.</td><td>Vaporising and wallflame burner</td><td></td><td></td><td></td></tr>
-  <tr><td>10.</td><td>Wallflame burner (additional)</td><td></td><td></td><td></td></tr>
-  <tr><td>11.</td><td>Appliance safety controls</td><td></td><td></td><td></td></tr>
-  <tr>
-    <th colspan="5">Heating system service</th>
-  </tr>
-  <tr><td>12.</td><td>Controls check</td><td></td><td></td><td></td></tr>
-  <tr><td>13.</td><td>System check - Hot water type</td><td></td><td></td><td></td></tr>
-  <tr><td>14.</td><td>System check - Warm air type</td><td></td><td></td><td></td></tr>
-</table>
-</div>
-
-<div data-bbox="[39,773,977,891]" data-label="Report-Footer-Table">
-<table>
-  <tr>
-    <th colspan="8">Test Results</th>
-  </tr>
-  <tr>
-    <td colspan="5">It is important to keep a record of the combustion analysis results - if they have been carried out electronically a copy of the printout should be attached to all copies of the service schedule and report.</td>
-    <td>Print out attached?</td>
-    <td>Yes ☐</td>
-    <td>No ☐</td>
-  </tr>
-  <tr>
-    <td>Pump pressure:</td>
-    <td></td>
-    <td>Efficiency Nett (%):</td>
-    <td></td>
-    <td>Efficiency Gross:</td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Pump vacumn:</td>
-    <td></td>
-    <td>Smoke No.</td>
-    <td></td>
-    <td>CO (ppm)</td>
-    <td></td>
-    <td>Excess Air (%)</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Draught:</td>
-    <td></td>
-    <td>Nozzle (size):</td>
-    <td></td>
-    <td>(angle)</td>
-    <td></td>
-    <td>(pattern)</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>CO₂ (%)</td>
-    <td></td>
-    <td>Flow rate (oil)</td>
-    <td></td>
-    <td>Low (cc/min)</td>
-    <td></td>
-    <td>High (cc/min)</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Flue gas temp (°C)</td>
-    <td></td>
-    <td>Flow rate (DHW)</td>
-    <td></td>
-    <td>Cold (l/min)</td>
-    <td></td>
-    <td>Hot (l/min)</td>
-    <td></td>
-  </tr>
-</table>
-</div>
-
-<div data-bbox="[39,892,977,955]" data-label="Report-Footer-Table">
-<table>
-  <tr>
-    <td>Recipient’s name:</td>
-    <td colspan="3"></td>
-    <td rowspan="2">Recipient’s signature:</td>
     <td rowspan="2"></td>
-  </tr>
-  <tr>
-    <td>Date:</td>
-    <td></td>
-    <td>Recipient’s status:</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Technician’s name:</td>
-    <td colspan="3"></td>
-    <td rowspan="2">Technician’s signature:</td>
     <td rowspan="2"></td>
+    <td rowspan="2"></td>
+    <td rowspan="2"></td>
+    <td rowspan="2"></td>
+    <td rowspan="2"></td>
+    <td>Low</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
-    <td>Date:</td>
-    <td colspan="3"></td>
+    <td>High</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
   </tr>
 </table>
 </div>
 
-<div data-bbox="[31,957,792,998]" data-label="Page-Footer-Footnote">JLA Limited, a company incorporated in England and Wales with company number 01094178, whose registered address is Meadowcroft Lane, Halifax Road, Ripponden, Sowerby Bridge, HX6 4AJ. JLA Total Care Limited, a company incorporated in England and Wales with company number 02951461, whose registered address is Meadowcroft Lane, Halifax Road, Ripponden, Sowerby Bridge, HX6 4AJ. JLA Total Care Limited is authorised and regulated by the Financial Conduct Authority Reference No. 631198</div>
+<div data-bbox="[22,408,945,482]" data-label="Detail-Report-Table">
+<table>
+  <tr>
+    <th colspan="4">Additional Checks (Yes/No/NA)</th>
+  </tr>
+  <tr>
+    <td>Flue flow test satisfactory</td>
+    <td>Ventilation satisfactory (see also Ventilation type)?</td>
+    <td>Flame proving/safety devices operating correctly?</td>
+    <td>Burner lock-out time (seconds)?</td>
+  </tr>
+  <tr>
+    <td>Spillage test satisfactory?</td>
+    <td>Temperature and limit thermostats operating correctly?</td>
+    <td>Air/gas pressure switch operating correctly?</td>
+    <td>Appliance serviced?</td>
+  </tr>
+</table>
+</div>
 
-<div data-bbox="[796,958,978,995]" data-label="Page-Footer-Text">jla.com | 0800 591 903</div>
+<div data-bbox="[23,490,945,704]" data-label="Detail-Report-Table">
+<table>
+  <tr>
+    <th>General Safety Checks (Yes/No/NA)</th>
+    <th>Ventilation type</th>
+    <th>Safety Information (Yes/No)</th>
+    <th>If Warning/Advice Notice issued, insert Serial No*</th>
+  </tr>
+  <tr>
+    <td>Gas booster(s)/compressor(s) operating correctly?</td>
+    <td>Natural: Room/boiler room/enclosure low-level free area (cm&sup2;)</td>
+    <td>Has a Warning/Advice Notice been raised?</td>
+    <td rowspan="7"></td>
+  </tr>
+  <tr>
+    <td>Gas installation tightness test carried out (if Yes, see separate form)?</td>   
+    <td>Natural: Room/boiler room/enclosure high-level free area (cm&sup2;)</td>        
+    <td>Have warning labels been attached?</td>
+  </tr>
+  <tr>
+    <td>Gas installation pipework adequately supported?</td>
+    <td>Natural: Is ventilation satisfactory? (If No, see Details of remedial work required)</td>
+    <td>Has responsible person been advised?</td>
+  </tr>
+  <tr>
+    <td>Gas installation pipework sleeved/labelled/painted as necessary?</td>
+    <td>Mechanical: ventilation flow rate inlet (m&sup3;/s)</td>
+    <td rowspan="4">*Refer to separate Warning/Advice Notice</td>
+  </tr>
+  <tr>
+    <td>Chimney system installed in accordance with appropriate standards?</td>
+    <td>Mechanical: ventilation flow rate extract (m&sup3;/s)</td>
+  </tr>
+  <tr>
+    <td>Chimney outlet termination(s) satisfactory?</td>
+    <td>Mechanical: ventilation interlock operating correctly?</td>
+  </tr>
+  <tr>
+    <td>Fan-flue interlock operating correctly?</td>
+    <td>Mechanical: Is ventilation satisfactory? (If No, see Remedial work required)</td>
+  </tr>
+</table>
+</div>
+
+<div data-bbox="[23,705,945,799]" data-label="Detail-Report-Table">
+<table>
+  <tr>
+    <th>Details of work carried out</th>
+    <th>General Safety Checks (Yes/No/NA)</th>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+</div>
+
+<div data-bbox="[20,804,507,904]" data-label="Report-Footer-Text">**DECLARATION OF GAS SAFETY** - I confirm that all of the above work described on this form has been satisfactorily completed in accordance with the current Gas Safety (Installation and Use) Regulations, standards and procedures.</div>
+
+<div data-bbox="[464,806,947,875]" data-label="Report-Footer-Table">
+<table>
+  <tr>
+    <th>Engineer name:</th>
+    <td></td>
+    <th>Received by:</th>
+    <td></td>
+  </tr>
+  <tr>
+    <th>Signature:</th>
+    <td></td>
+    <th>Signature:</th>
+    <td></td>
+  </tr>
+</table>
+</div>
+
+<div data-bbox="[20,883,162,908]" data-label="Report-Footer-Text">Card ID: 5783555</div>
+
+<div data-bbox="[332,883,745,908]" data-label="Report-Footer-Footnote">Gas Safe Register is a registered trade mark of the HSE and is used under licence.</div>
+
+<div data-bbox="[806,883,848,908]" data-label="Report-Footer-Text">CP15</div>
+
+<div data-bbox="[20,930,800,980]" data-label="Page-Footer-Footnote">JLA Limited, a company incorporated in England and Wales with company number 01094178, whose registered address is Meadowcroft Lane, Halifax Road, Ripponden, Sowerby Bridge, HX6 4AJ. JLA Total Care Limited, a company incorporated in England and Wales with company number 02951461, whose registered address is Meadowcroft Lane, Halifax Road, Ripponden, Sowerby Bridge, HX6 4AJ. JLA Total Care Limited is authorised and regulated by the Financial Conduct Authority Reference No. 631198</div>
+
+<div data-bbox="[833,936,978,980]" data-label="Page-Footer-Text">jla.com | 0800 591 903</div>
     """
     
     rep_xml = convert_html_to_repx(html_input)
